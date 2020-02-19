@@ -1,0 +1,11 @@
+C:\Users\mariu\source\repos\DungeonMan\bin\Debug\netcoreapp3.1\DungeonMan.exe
+C:\Users\mariu\source\repos\DungeonMan\bin\Debug\netcoreapp3.1\DungeonMan.deps.json
+C:\Users\mariu\source\repos\DungeonMan\bin\Debug\netcoreapp3.1\DungeonMan.runtimeconfig.json
+C:\Users\mariu\source\repos\DungeonMan\bin\Debug\netcoreapp3.1\DungeonMan.runtimeconfig.dev.json
+C:\Users\mariu\source\repos\DungeonMan\bin\Debug\netcoreapp3.1\DungeonMan.dll
+C:\Users\mariu\source\repos\DungeonMan\bin\Debug\netcoreapp3.1\DungeonMan.pdb
+C:\Users\mariu\source\repos\DungeonMan\obj\Debug\netcoreapp3.1\DungeonMan.csprojAssemblyReference.cache
+C:\Users\mariu\source\repos\DungeonMan\obj\Debug\netcoreapp3.1\DungeonMan.AssemblyInfoInputs.cache
+C:\Users\mariu\source\repos\DungeonMan\obj\Debug\netcoreapp3.1\DungeonMan.AssemblyInfo.cs
+C:\Users\mariu\source\repos\DungeonMan\obj\Debug\netcoreapp3.1\DungeonMan.dll
+C:\Users\mariu\source\repos\DungeonMan\obj\Debug\netcoreapp3.1\DungeonMan.pdb

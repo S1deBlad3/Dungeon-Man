@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "DungeonMan": {
+      "commandName": "Project"
+    },
+    "Debug": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\mariu\\source\\repos\\Debug Console\\bin\\Debug\\netcoreapp3.1\\Debug Console.exe"
+    }
+  }
+}
