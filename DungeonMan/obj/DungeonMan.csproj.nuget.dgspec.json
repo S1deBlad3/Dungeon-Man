@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mariu\\source\\repos\\DungeonMan\\DungeonMan.csproj": {}
+    "C:\\Users\\mariu\\Documents\\GitHub\\Dungeon-Man\\DungeonMan\\DungeonMan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mariu\\source\\repos\\DungeonMan\\DungeonMan.csproj": {
+    "C:\\Users\\mariu\\Documents\\GitHub\\Dungeon-Man\\DungeonMan\\DungeonMan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mariu\\source\\repos\\DungeonMan\\DungeonMan.csproj",
+        "projectUniqueName": "C:\\Users\\mariu\\Documents\\GitHub\\Dungeon-Man\\DungeonMan\\DungeonMan.csproj",
         "projectName": "DungeonMan",
-        "projectPath": "C:\\Users\\mariu\\source\\repos\\DungeonMan\\DungeonMan.csproj",
+        "projectPath": "C:\\Users\\mariu\\Documents\\GitHub\\Dungeon-Man\\DungeonMan\\DungeonMan.csproj",
         "packagesPath": "C:\\Users\\mariu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mariu\\source\\repos\\DungeonMan\\obj\\",
+        "outputPath": "C:\\Users\\mariu\\Documents\\GitHub\\Dungeon-Man\\DungeonMan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mariu\\AppData\\Roaming\\NuGet\\NuGet.Config",
