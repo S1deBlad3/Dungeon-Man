@@ -8,14 +8,15 @@ namespace DungeonMan.Items.Misc
 
 
     {
-
-        public static float amountInWallet;
+        //sets the standard variables like what 1 gold is worth
+        public static float amountInWallet = 100f;
         public const int VALUEOFMONEY = 1;
+        public float ShopMoney;
 
         //Objects
         static Random random;
 
-
+        //sets the values
         public Money()
         {
             ID = 3;
@@ -23,7 +24,7 @@ namespace DungeonMan.Items.Misc
             rarity = 1f;
         }
 
-
+        //calculates what amount of money the enemy drops after death
         public static int EnemyDropMoney()
         {
             random = new Random();

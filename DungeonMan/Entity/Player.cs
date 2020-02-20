@@ -23,12 +23,17 @@ namespace DungeonMan.Entity
 
         public Player()
         {
+
+            health = 100;
+            attack = 15 + curWeaponDamage;
+            defense = 5;
+
             //inv.Add("Fist", 0);
             //inv.Add("Basic Sword", 10);
             //inv.Add("Advanced Sword", 20);
             inv.Add(new Items.Weapons.Fist());
             inv.Add(new Items.Weapons.Basic_Sword());
-            inv.Add(new Items.Weapons.Advanced_Sword());
+            //inv.Add(new Items.Weapons.Advanced_Sword());
             /*
             inventory[0] = 0;
             inventory[1] = 10;
@@ -39,13 +44,13 @@ namespace DungeonMan.Entity
 
             Console.WriteLine(curWeaponDamage);
 
-            health = 100;
-            attack = 15 + curWeaponDamage;
-            defense = 5;
+           
         }
 
 
-
+        /*
+         * A method that cycles through the inv list and get whatever value that was of the weapon ID that was selected.
+         */
 
         public void GetCurrentWeapon()
         {
@@ -55,7 +60,10 @@ namespace DungeonMan.Entity
             {
                 if (slots.ID == weaponSelected)
                 {
+                    //Sets the damage to the correct weapon and print out the name and damage
                     curWeaponDamage = slots.attackStat;
+                    Console.WriteLine();
+                    Console.WriteLine("what");
                     Console.WriteLine("The selected weapon is {0}  and you do maximum of {1} Damage", slots.Name, GetMaxDamage());
                     break;
                 } 
@@ -67,6 +75,10 @@ namespace DungeonMan.Entity
 
         }
 
+
+        /*
+         * A method to list the inventory on the screen 
+         */
         public void listInventory()
         {
             foreach (var slots in inv)
@@ -95,7 +107,9 @@ namespace DungeonMan.Entity
             }
         }
 
-
+        /*
+         * Returns the maximum damage of the player
+         */
         public int GetMaxDamage()
         {
             return attack + curWeaponDamage;

@@ -35,13 +35,19 @@ namespace DungeonMan.Battle
             Console.WriteLine("Please decide what to do");
             nextMove();
         }
-
+        /*
+         * A game over that ends the application and displays the score
+         */
         public static void gameOver()
         {
             Console.WriteLine("Game Over you lasted : {0} turns, earned {1} gold and had a score of {2}", turns, Items.Misc.Money.amountInWallet, score);
 
             Environment.Exit(0);
         }
+
+        /*
+        * The main battle loop
+        */
 
         public void nextMove()
         {
@@ -53,7 +59,7 @@ namespace DungeonMan.Battle
             string order1 = "attack";
             string[] order2 = { "Switch weapon", "switch", "weapon", "switch weapon" };
 
-            //Main Game Loop for now
+            //Main loop for battle, here the player can decide actions
 
             while (player.health >= 1)
             {
@@ -64,10 +70,10 @@ namespace DungeonMan.Battle
                 string input = Console.ReadLine();
                 Console.WriteLine();
 
-
+                //checks wheter the input of the player matches the ones that are allowed
                 if (input.Equals(order1))
                 {
-
+                    //debug code for auto run
                     if (auto)
                     {
                         while (enemy.health >= 0)
@@ -106,18 +112,19 @@ namespace DungeonMan.Battle
                     {
 
 
-
+                        //Sends the damage done by the player to the enemy
                         damageDone = player.attackTarget(player.attack);
                         enemy.damageTaken(damageDone);
                         WriteAttackToScreen(damageDone);
 
                         //An attack classes as a turn
                         turns++;
-
+                        //Gets the amount of damage the enemy has gotten
                         damageTaken = enemy.attackTarget(enemy.attack);
                         player.damageTaken(damageTaken);
                         WriteAttackToScreenToPlayer(damageTaken);
 
+                        //When the enemy has less or = to 0 health it will end the encounter
                         if(enemy.health <= 0)
                         {
 
@@ -160,7 +167,9 @@ namespace DungeonMan.Battle
                     
                 }
 
-
+                /*
+                * This loop is used to display and get what item to use. The variable selected weapon turns to ID that gets sent to player.class 
+                */
                 foreach (string order in order2)
                 {
                     
@@ -182,7 +191,7 @@ namespace DungeonMan.Battle
                                 case "basic sword":
                                     player.weaponSelected = 1;
                                     player.GetCurrentWeapon();
-                                    Console.WriteLine("You have selected {0}", player.weaponSelected);
+                                    Console.WriteLine("You have selected {0} \n", player.weaponSelected);
                                     break;
 
                                 case "Fist":
@@ -212,6 +221,7 @@ namespace DungeonMan.Battle
 
 
                         }
+                    break;
 
 
                 }
@@ -223,12 +233,14 @@ namespace DungeonMan.Battle
                 
 
             }
-
+            //If the player dies it's game over
             gameOver();
 
         }
 
-
+        /*
+       * Method for printing out the attack to the enemy
+       */
         public void WriteAttackToScreen(int damage)
         {
 
@@ -245,7 +257,9 @@ namespace DungeonMan.Battle
             
         }
 
-
+        /*
+       * Method for printing out the attack done to the player by the enemy
+       */
         public void WriteAttackToScreenToPlayer(int damage)
         {
 
@@ -259,6 +273,9 @@ namespace DungeonMan.Battle
             Console.Write("{0}", player.health);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write(" left \n");
+
+            Console.BufferHeight += 20;
+
 
 
         }

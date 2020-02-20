@@ -6,7 +6,8 @@ namespace DungeonMan.Items.Weapons
 {
     class Advanced_Sword : Item
     {
-
+        public static int InStore = 0;
+        //sets standar values
         public Advanced_Sword()
         {
             ID = 2;
@@ -15,6 +16,8 @@ namespace DungeonMan.Items.Weapons
             defendStat = 5;
             BASEPRICE = 15.0f;
             rarity = 0.9f;
+
+            
         }
 
     }

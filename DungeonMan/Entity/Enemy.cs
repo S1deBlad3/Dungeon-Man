@@ -9,7 +9,7 @@ namespace DungeonMan.Entity
         private OverWorld.OverWorld OverWorld;
 
        
-       
+       //sets standard values
 
         public Enemy()
         {
@@ -18,10 +18,12 @@ namespace DungeonMan.Entity
             defense = 5;
         }
 
-
+        /*
+       * Override the entity method and takes the damage that comes from battlemap
+       */
         public override int damageTaken(int attack)
         {
-
+            //Outdated method, got moved
             if(this.health <= 0)
             {
                 /*
@@ -37,11 +39,11 @@ namespace DungeonMan.Entity
                 return 0;
                 */
             }
-     
+            //gets the health left after the damage
             return health -= attack;
         }
 
-
+        //creates a new instance of overWorld
         public void EnemyDead()
         {
             OverWorld = new OverWorld.OverWorld();

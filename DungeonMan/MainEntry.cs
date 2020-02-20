@@ -13,6 +13,7 @@ namespace DungeonMan
         public static int originalLineLeft;
         public static int offsideLineTop = 20;
         public static int offSideLineLeft = 80;
+        public static int originalBufferTop = 100;
 
 
 
@@ -30,8 +31,10 @@ namespace DungeonMan
             Console.ForegroundColor = ConsoleColor.White;
             Console.CursorVisible = true;
             Console.Title = "Dungeon Man";
-            //Console.SetBufferSize(120, 100);
-            //Console.SetWindowSize(120, 40);
+            Console.SetBufferSize(120, 100);
+            Console.SetWindowSize(120, 40);
+            Console.MoveBufferArea(0, 0, 120, 40, 120, 100);
+            
             Console.WriteLine("Console Height :  " +  Console.BufferHeight + "  Console Width  :   " +  Console.BufferWidth);
             Console.WriteLine("Console Window Height :  " + Console.WindowHeight + "  Console Window Width  :   " + Console.WindowWidth);
             Console.WriteLine("Console Position Left :  " + Console.WindowLeft + "  Console Position Top  :   " + Console.WindowTop);
@@ -64,6 +67,31 @@ namespace DungeonMan
         }
 
         /*
+         * Debug screen outside of the main text area
+         */
+        public static void RightDebug()
+        {
+            //gets the cursor pos before change
+            int l = Console.CursorLeft;
+            int t = Console.CursorTop;
+            //creates the new left cursor position to move --->
+            int LN = l + 80;
+            Console.SetCursorPosition(LN, t);
+            Console.Write("New debug code here!");
+
+            //Move the position to its original and add one to not cluster the text
+            t = Console.CursorTop + 1;
+            l = 0;
+            Console.SetCursorPosition(l, t);
+            
+            //Most important line of code, otherwise it will throw an exception because it's out of bounds
+            Console.BufferHeight += 20;
+            
+            Console.WriteLine("working");
+
+        }
+
+        /*
          * Various console commands:
          * change the color
          * clear the color from ^
@@ -83,6 +111,7 @@ namespace DungeonMan
         public static void ClearWindow()
         {
             Console.Clear();
+            Console.BufferHeight = MainEntry.originalBufferTop;
         }
 
         // Main Metod were we create a new instance of the MainEntry and setup the World (Game Loop)

@@ -27,6 +27,8 @@ namespace DungeonMan.OverWorld
 
 
         //Instance of player, if not yet created it will create a new player
+
+            //IMPORTANT TODO: ADD A CLASS THAT SAVES THE PLAYER SINCE IT GETS DESTROYED EVERY ENCOUNTER?
         public OverWorld()
         {
 
@@ -35,6 +37,7 @@ namespace DungeonMan.OverWorld
                 player = new Player();
 
             }
+        
            
                 //Console.WriteLine("This console dont like me :(");
                 
@@ -42,6 +45,10 @@ namespace DungeonMan.OverWorld
                 OverWorldMove();
           
         }
+
+
+
+   
 
         /*
          * Main Game Loop
@@ -64,6 +71,8 @@ namespace DungeonMan.OverWorld
                 MainEntry.originalLineTop = Console.CursorTop;
                 MainEntry.updateDebug();
 
+                Console.BufferHeight += 20;
+
                 //Gets the input
                 string decision = Console.ReadLine();
 
@@ -73,6 +82,7 @@ namespace DungeonMan.OverWorld
                     case "walk":
                         random = new Random();
                         MainEntry.ClearWindow();
+                        
 
                         //Debug code
                         bool enemyEncounter = true;
@@ -101,8 +111,22 @@ namespace DungeonMan.OverWorld
                     
                     
                     case "move":
+                        Console.WriteLine("Where do you want to go? The City, Your home, Explore, or Back");
+                        string input = Console.ReadLine();
 
-                        Console.WriteLine("Do something");
+                        switch (input)
+                        {
+                            case "City":
+                                City.City city = new City.City(ref player);
+                                Console.WriteLine("City");
+                                break;
+                            case "Home":
+                                break;
+                            case "Explore":
+                                break;
+                            case "Back":
+                                break;
+                        }
 
                         break;
 
@@ -112,6 +136,7 @@ namespace DungeonMan.OverWorld
                         break;
 
                     default:
+                        MainEntry.RightDebug();
                         continue;
 
 
@@ -123,11 +148,12 @@ namespace DungeonMan.OverWorld
 
 
 
-
+                break;
 
             }
-        
-        
+
+            
+
         }
 
 
