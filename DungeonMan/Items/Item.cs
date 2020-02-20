@@ -11,7 +11,7 @@ namespace DungeonMan.Items
         public  float BASEPRICE { get; set; }
         public int attackStat { get; set; }
         protected int defendStat { get; set; }
-        protected float rarity { get; set; }
+        public float rarity { get; set; }
 
         
 

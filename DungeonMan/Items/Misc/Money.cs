@@ -9,7 +9,7 @@ namespace DungeonMan.Items.Misc
 
     {
         //sets the standard variables like what 1 gold is worth
-        public static float amountInWallet = 100f;
+        public static float amountInWallet = 800f;
         public const int VALUEOFMONEY = 1;
         public float ShopMoney;
 

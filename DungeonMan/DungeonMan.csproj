@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="OverWorld\City\Shop\Market\" />
     <Folder Include="OverWorld\Exploration\" />
     <Folder Include="OverWorld\Home\" />
   </ItemGroup>

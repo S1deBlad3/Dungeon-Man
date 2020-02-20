@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonMan.OverWorld.City.Shop.Market;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +7,17 @@ namespace DungeonMan.OverWorld.City.Shop
 {
     class Shop
     {
+     
+
 
         Entity.Player player;
+        
         City city;
         //Item class and amount in store
         //SortedList<Items.Item, int> items = new SortedList<Items.Item, int>();
         List<Items.Item> shopinv = new List<Items.Item>();
         Items.Misc.Money money = new Items.Misc.Money();
+        VirtualEconomy virtualEconomy;
         
         bool inShop = false;
 
@@ -27,6 +32,8 @@ namespace DungeonMan.OverWorld.City.Shop
         public Shop(ref Entity.Player player)
         {
             this.player = player;
+
+            virtualEconomy = new Market.VirtualEconomy(ref player);
 
             //Whatever goes in here
             Items.Weapons.Advanced_Sword.InStore = 5;
@@ -47,6 +54,9 @@ namespace DungeonMan.OverWorld.City.Shop
             //
 
             inShop = true;
+
+            virtualEconomy.SupplyCurvePotionsRegular(potion);
+
             ShopMove();
         }
 
@@ -128,7 +138,9 @@ namespace DungeonMan.OverWorld.City.Shop
                                     Console.WriteLine("You can buy a max of : " + Math.Floor(Items.Misc.Money.amountInWallet / potion.BASEPRICE));
                                     string amount = Console.ReadLine();
 
-                                    if(Convert.ToInt32(amount) > Items.Potions.HealthPotion.InStore){
+                                    virtualEconomy.SupplyCurvePotions(potion, Convert.ToInt32(amount));
+
+                                    if (Convert.ToInt32(amount) > Items.Potions.HealthPotion.InStore){
                                         Console.WriteLine("cant buy more than we have");
                                     }
 
