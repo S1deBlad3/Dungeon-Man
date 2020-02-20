@@ -91,6 +91,28 @@ namespace DungeonMan
 
         }
 
+        public static void ShowCoins()
+        {
+            //gets the cursor pos before change
+            int l = Console.CursorLeft;
+            int t = Console.CursorTop;
+            //creates the new left cursor position to move --->
+            int LN = l + 80;
+            Console.SetCursorPosition(LN, t);
+            Console.Write("Coins {0}", Items.Misc.Money.amountInWallet);
+
+            //Move the position to its original and add one to not cluster the text
+            t = Console.CursorTop + 1;
+            l = 0;
+            Console.SetCursorPosition(l, t);
+
+            //Most important line of code, otherwise it will throw an exception because it's out of bounds
+            Console.BufferHeight += 20;
+
+            Console.WriteLine("working");
+
+        }
+
         /*
          * Various console commands:
          * change the color

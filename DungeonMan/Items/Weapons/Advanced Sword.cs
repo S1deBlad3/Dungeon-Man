@@ -16,6 +16,7 @@ namespace DungeonMan.Items.Weapons
             defendStat = 5;
             BASEPRICE = 15.0f;
             rarity = 0.9f;
+            
 
             
         }

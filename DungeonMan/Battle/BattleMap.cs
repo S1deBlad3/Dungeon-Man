@@ -7,9 +7,12 @@ namespace DungeonMan.Battle
 {
     class BattleMap
     {
-
+        //Main Objects
         Player player;
         Enemy enemy;
+
+        //More Objects
+        Items.Potions.HealthPotion potion = new Items.Potions.HealthPotion();
 
         public static int turns { get; set; }
         public static int score { get; set; }
@@ -207,6 +210,17 @@ namespace DungeonMan.Battle
                                     Console.WriteLine("You have seleted {0}", player.weaponSelected);
                                     break;
 
+                            case "potion":
+                                if(Items.Potions.HealthPotion.AmountInInv > 0)
+                                {
+                                    potion.Use(potion, player);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You don't have any health potions");
+                                }
+                               
+                                break;
 
                                 case "exit":
                                     nextMove();

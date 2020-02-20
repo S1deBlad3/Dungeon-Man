@@ -19,6 +19,7 @@ namespace DungeonMan.OverWorld.City.Shop
         //All the buyable objects
         Items.Weapons.Basic_Sword basicSword = new Items.Weapons.Basic_Sword();
         Items.Weapons.Advanced_Sword advancedSword = new Items.Weapons.Advanced_Sword();
+        Items.Potions.HealthPotion potion = new Items.Potions.HealthPotion();
         
 
 
@@ -29,10 +30,16 @@ namespace DungeonMan.OverWorld.City.Shop
 
             //Whatever goes in here
             Items.Weapons.Advanced_Sword.InStore = 5;
+            Items.Weapons.Basic_Sword.InStore = 2;
+            Items.Potions.HealthPotion.InStore = 40;
+            
+            
             //add basic items
             //items.Add(advancedSword = new Items.Weapons.Advanced_Sword(), Items.Weapons.Advanced_Sword.InStore);
             //items.Add(money = new Items.Misc.Money(), 250);
             shopinv.Add(advancedSword);
+            shopinv.Add(basicSword);
+            shopinv.Add(potion);
             money.ShopMoney = 250f;
             
 
@@ -58,6 +65,8 @@ namespace DungeonMan.OverWorld.City.Shop
                     case "buy":
 
                         loopInventory();
+
+                        Console.WriteLine("We have {0} money to trade with", money.ShopMoney);
 
                         string buyOrder = Console.ReadLine();
 
@@ -85,7 +94,65 @@ namespace DungeonMan.OverWorld.City.Shop
                                 break;
 
                             case "basic":
+
+
+                                if (Items.Misc.Money.amountInWallet >= basicSword.BASEPRICE)
+                                {
+
+                                    Console.WriteLine(Items.Weapons.Advanced_Sword.InStore);
+
+                                    player.inv.Add(basicSword);
+                                    Items.Misc.Money.amountInWallet -= basicSword.BASEPRICE;
+                                    money.ShopMoney += basicSword.BASEPRICE;
+                                    shopinv.Remove(basicSword);
+                                    shopinv.Add(basicSword);
+                                    Items.Weapons.Basic_Sword.InStore--;
+
+
+                                    Console.WriteLine(Items.Weapons.Basic_Sword.InStore);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You aint got ze muneys");
+                                }
+
                                 break;
+
+                            case "potion":
+
+
+                                if (Items.Misc.Money.amountInWallet >= potion.BASEPRICE)
+                                {
+
+                                    Console.WriteLine("How many?");
+                                    Console.WriteLine("You can buy a max of : " + Math.Floor(Items.Misc.Money.amountInWallet / potion.BASEPRICE));
+                                    string amount = Console.ReadLine();
+
+                                    if(Convert.ToInt32(amount) > Items.Potions.HealthPotion.InStore){
+                                        Console.WriteLine("cant buy more than we have");
+                                    }
+
+
+                                    Console.WriteLine(Items.Potions.HealthPotion.InStore);
+
+                                    player.inv.Add(potion);
+                                    Items.Potions.HealthPotion.AmountInInv += Convert.ToInt32(amount);
+                                    Items.Misc.Money.amountInWallet -= potion.BASEPRICE * Convert.ToInt32(amount);
+                                    money.ShopMoney += potion.BASEPRICE * Convert.ToInt32(amount);
+                                    shopinv.Remove(potion);
+                                    shopinv.Add(potion);
+                                    Items.Potions.HealthPotion.InStore -= Convert.ToInt32(amount);
+
+
+                                    Console.WriteLine(Items.Potions.HealthPotion.InStore);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You aint got ze muneys");
+                                }
+
+                                break;
+
                         }
 
                         break;
@@ -120,7 +187,55 @@ namespace DungeonMan.OverWorld.City.Shop
                                     Console.WriteLine("We aint got ze muneys");
                                 }
                                 break;
-                                
+
+
+                            case "potion":
+
+
+                                if ((money.ShopMoney >= potion.BASEPRICE && player.inv.Contains(potion)))
+                                {
+
+
+                                    Console.WriteLine("how many?");
+
+                                    MainEntry.ShowCoins();
+
+                                    string amount = Console.ReadLine();
+
+
+
+                                    if (Convert.ToInt32(amount) > Items.Potions.HealthPotion.AmountInInv)
+                                    {
+                                        Console.WriteLine("You cant sell more than what you have");
+                                        continue;
+                                    }
+                                    else
+                                    {
+
+                                        Console.WriteLine(Items.Potions.HealthPotion.InStore);
+                                        
+
+
+                                        player.inv.Remove(potion);
+                                        Items.Potions.HealthPotion.AmountInInv -= Convert.ToInt32(amount);
+                                        Items.Misc.Money.amountInWallet += potion.BASEPRICE * Convert.ToInt32(amount);
+                                        money.ShopMoney -= potion.BASEPRICE * Convert.ToInt32(amount);
+                                        shopinv.Remove(potion);
+                                        shopinv.Add(potion);
+                                        Items.Potions.HealthPotion.InStore += Convert.ToInt32(amount);
+
+
+                                        Console.WriteLine(Items.Potions.HealthPotion.InStore);
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You aint got ze muneys");
+                                }
+
+                                break;
+
+
                         }
 
 
@@ -147,7 +262,7 @@ namespace DungeonMan.OverWorld.City.Shop
 
 
 
-                Console.WriteLine("We have {0} money to trade with", money.ShopMoney);
+                
             }
         }
 
