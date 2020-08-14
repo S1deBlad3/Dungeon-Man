@@ -1,0 +1,5 @@
+/Users/mariusdaldorffpedersen/Projects/DungeonManMacEdition/DungeonManMacEdition/bin/Debug/DungeonManMacEdition.exe
+/Users/mariusdaldorffpedersen/Projects/DungeonManMacEdition/DungeonManMacEdition/bin/Debug/DungeonManMacEdition.pdb
+/Users/mariusdaldorffpedersen/Projects/DungeonManMacEdition/DungeonManMacEdition/obj/x86/Debug/DungeonManMacEdition.csproj.CoreCompileInputs.cache
+/Users/mariusdaldorffpedersen/Projects/DungeonManMacEdition/DungeonManMacEdition/obj/x86/Debug/DungeonManMacEdition.exe
+/Users/mariusdaldorffpedersen/Projects/DungeonManMacEdition/DungeonManMacEdition/obj/x86/Debug/DungeonManMacEdition.pdb
